@@ -23,3 +23,13 @@ res.send(Bread[req.params.arrayIndex])
 });
 
 module.exports = breads
+// SHOW
+breads.get('/:arrayIndex', (req, res) => {
+  
+  // res.render('Show', {
+  //   bread: Bread[req.params.arrayIndex]
+  // })
+  res.render('Show', {
+    bread: Bread[req.params.arrayIndex]
+  })
+})
