@@ -19,29 +19,18 @@ breads.get('/', (req, res) =>
 //locathost/breads/0...arrayIndex replace to 0 to get output
 breads.get('/:arrayIndex', (req, res) =>
 {
-res.send(Bread[req.params.arrayIndex])
-});
+//res.send(Bread[req.params.arrayIndex])
+if (Bread[req.params.arrayIndex]) {
+res.render('Show', {
+  bread: Bread[req.params.arrayIndex]
+})
+} else {
+res.send('404')
+//res.redirect('404')
+}
+})
 
 module.exports = breads
-// SHOW
-//breads.get('/:arrayIndex', (req, res) => {
-  
-  // res.render('Show', {
-  //   bread: Bread[req.params.arrayIndex]
-  // })
-  // res.render('Show', {
-  //   bread: Bread[req.params.arrayIndex]
-  // })
-breads.get('/:arrayIndex', (req, res) => {
-  if (Bread[req.params.arrayIndex]) {
-    res.render('Show', {
-      bread:Bread[req.params.arrayIndex]
-    })
-  } else {
-    //res.send('404')
-    res.redirect('404')
-  }
-})
 
 
 
